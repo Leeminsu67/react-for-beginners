@@ -49,7 +49,6 @@ function App() {
 
       // 이 부분이 cleanup function
       // component가 deroy될 때 뭔가 할 수 있도록 해준다.
-      // 이걸로 component가 언제 create되었는지 언제 destroy가 되었는지 알 수 있다는 것이다.
       return () => console.log("destroyed :(");
     }, []);
     return <h1>Hello</h1>;

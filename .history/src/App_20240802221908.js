@@ -44,14 +44,24 @@ function App() {
   // UI 생성하면서 useEffect를 실행할 수 있다.
   // 어떻게 보면 별개의 컴포넌트이기 때문이다.
   const Hello = () => {
-    useEffect(() => {
-      console.log("created :)");
+    const destroyedFn = () => {
+      console.log("destroyed :(");
+    };
 
-      // 이 부분이 cleanup function
-      // component가 deroy될 때 뭔가 할 수 있도록 해준다.
-      // 이걸로 component가 언제 create되었는지 언제 destroy가 되었는지 알 수 있다는 것이다.
-      return () => console.log("destroyed :(");
-    }, []);
+    const effectFn = () => {
+      console.log("created :)");
+    };
+
+    useEffect(effectFn, []);
+
+    // useEffect(() => {
+    //   console.log("created :)");
+
+    //   // 이 부분이 cleanup function
+    //   // component가 deroy될 때 뭔가 할 수 있도록 해준다.
+    //   // 이걸로 component가 언제 create되었는지 언제 destroy가 되었는지 알 수 있다는 것이다.
+    //   return () => console.log("destroyed :(");
+    // }, []);
     return <h1>Hello</h1>;
   };
 
